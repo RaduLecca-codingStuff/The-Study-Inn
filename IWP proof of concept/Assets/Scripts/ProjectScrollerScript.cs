@@ -37,7 +37,7 @@ public class ProjectScrollerScript : MonoBehaviour
                     if (isParsable)
                         badges.Add(new Badge(Badge.IntToSkill(sk)));
                 }
-                ProjectData data = new ProjectData(badges, indivSegments[0], indivSegments[1], indivSegments[2]);
+                ProjectData data = new ProjectData(badges, indivSegments[0].Trim(), indivSegments[1].Trim(), indivSegments[2].Trim());
                 projects.Add(data);
             }
             
