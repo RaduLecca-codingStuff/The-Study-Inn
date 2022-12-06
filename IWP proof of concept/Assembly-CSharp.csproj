@@ -53,15 +53,13 @@
     <UnityVersion>2020.3.18f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\DisplayProject.cs" />
     <Compile Include="Assets\Scripts\ProjectScrollerScript.cs" />
     <Compile Include="Assets\Scripts\User.cs" />
     <Compile Include="Assets\Scripts\ButtonScripts.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ProjectData.cs" />
-    <Compile Include="Assets\Scripts\DisplayProject.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\DataFiles\ProjectList.txt" />
+    <Compile Include="Assets\Scripts\Badge.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

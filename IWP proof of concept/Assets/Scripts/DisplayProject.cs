@@ -9,19 +9,16 @@ public class DisplayProject : MonoBehaviour
     Text NameText;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-       // dataToShow=new ProjectData();
-        NameText = GetComponent<Text>();
-       // SetName();
+        
     }
 
-    void SetName()
-    {
-        NameText.text=dataToShow.name;
-    }
     public void SetProjectData(ProjectData data)
     {
+        NameText = GetComponent<Text>();
         dataToShow = data;
+        if(NameText != null)
+        NameText.text = dataToShow.name;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using System;
 
 public class ProjectScrollerScript : MonoBehaviour
 {
@@ -10,14 +11,39 @@ public class ProjectScrollerScript : MonoBehaviour
     public GameObject optionBase;
     GameObject ScrollParent;
     public ButtonScripts bScripts;
-    
+    string[] projDataStrings;
+    string path;
+
+
     public void ReadString()
     {
-        string path = Application.dataPath + "/DataFiles/test.pdata";
+        path = "Assets/DataFiles/ProjectListFile.pdata";
         Resources.Load(path);
         StreamReader reader = new StreamReader(path);
-        Debug.Log(reader.ReadToEnd());
+        projDataStrings = reader.ReadToEnd().Split('~');
         reader.Close();
+
+        for (int i = 0; i < projDataStrings.Length; i++)
+        {
+            string[] indivSegments = projDataStrings[i].Split('`');
+            string[] skillsrequired = indivSegments[3].Split(',');
+            if(skillsrequired.Length > 0 && indivSegments.Length>0)
+            {
+                List<Badge> badges = new List<Badge>();
+                foreach (string skill in skillsrequired)
+                {
+                    int sk;
+                    bool isParsable = Int32.TryParse(skill, out sk);
+                    if (isParsable)
+                        badges.Add(new Badge(Badge.IntToSkill(sk)));
+                }
+                ProjectData data = new ProjectData(badges, indivSegments[0], indivSegments[1], indivSegments[2]);
+                projects.Add(data);
+            }
+            
+        }
+        
+        
     }
     private void Awake()
     {
@@ -29,25 +55,23 @@ public class ProjectScrollerScript : MonoBehaviour
         ReadString();
         GameObject option;
         
-        for(int i = 1; i <= 10; i++)
+        for(int i = 0; i < projects.Count; i++)
         {
             option = Instantiate(optionBase);
             SetButtons(option.GetComponentInChildren<Button>());
+            option.GetComponent<DisplayProject>().SetProjectData(projects[i]);
             option.transform.SetParent(ScrollParent.transform);
-            
-
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
     void SetButtons(Button button)
     {
         button.onClick.AddListener(bScripts.OpenDetailsWindow);
     }
-    
+    void SetString( string str)
+    {
+        string[] indivSegments = str.Split('`');
+        string[] skillsrequired = indivSegments[3].Split(',');
+
+    }
 }
