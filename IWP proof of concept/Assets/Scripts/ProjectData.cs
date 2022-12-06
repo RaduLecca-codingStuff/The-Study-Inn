@@ -14,15 +14,21 @@ public class ProjectData
         set { _projectID = value; }
     }
     List<Badge> _skillsRequired;
+    public List<Badge> SkillsRequired
+    {
+        get { return _skillsRequired; }
+        set { _skillsRequired = value; }
+    }
+
     public ProjectData(List<Badge> b,string n,string d, string p) 
     { 
         _skillsRequired = b;
         name = n;
         description = d;
         publisher = p;
-    
-    
+
     }
-  
+
+    
    
 }

@@ -15,7 +15,7 @@ public class ButtonScripts : MonoBehaviour
     public void OpenTestPanel(Button button)
     {
         TestPanel.SetActive(true);
-        //DisableAllButtons();
+    
     }
     public void CloseTestPanel()
     {

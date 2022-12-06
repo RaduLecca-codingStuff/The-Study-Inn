@@ -55,11 +55,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DisplayProject.cs" />
     <Compile Include="Assets\Scripts\ProjectScrollerScript.cs" />
+    <Compile Include="Assets\Scripts\Badge.cs" />
     <Compile Include="Assets\Scripts\User.cs" />
     <Compile Include="Assets\Scripts\ButtonScripts.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ProjectData.cs" />
-    <Compile Include="Assets\Scripts\Badge.cs" />
+    <Compile Include="Assets\Scripts\DisplayFullProjectInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
