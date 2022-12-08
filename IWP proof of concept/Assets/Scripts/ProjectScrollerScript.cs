@@ -13,8 +13,6 @@ public class ProjectScrollerScript : MonoBehaviour
     public ButtonScripts bScripts;
     string[] projDataStrings;
     string path;
-
-
     public void ReadString()
     {
         path = "Assets/DataFiles/ProjectListFile.pdata";
@@ -26,7 +24,7 @@ public class ProjectScrollerScript : MonoBehaviour
         for (int i = 0; i < projDataStrings.Length; i++)
         {
             string[] indivSegments = projDataStrings[i].Split('`');
-            string[] skillsrequired = indivSegments[3].Split(',');
+            string[] skillsrequired = indivSegments[4].Split(',');
             if(skillsrequired.Length > 0 && indivSegments.Length>0)
             {
                 List<Badge> badges = new List<Badge>();
@@ -37,7 +35,7 @@ public class ProjectScrollerScript : MonoBehaviour
                     if (isParsable)
                         badges.Add(new Badge(Badge.IntToSkill(sk)));
                 }
-                ProjectData data = new ProjectData(badges, indivSegments[0].Trim(), indivSegments[1].Trim(), indivSegments[2].Trim());
+                ProjectData data = new ProjectData(badges, indivSegments[1].Trim(), indivSegments[2].Trim(), indivSegments[3].Trim(), indivSegments[0].Trim());
                 projects.Add(data);
             }
             
@@ -58,15 +56,15 @@ public class ProjectScrollerScript : MonoBehaviour
         for(int i = 0; i < projects.Count; i++)
         {
             option = Instantiate(optionBase);
-            SetButtons(option.GetComponentInChildren<Button>());
+            SetButtons(option.GetComponentInChildren<Button>(), projects[i]);
             option.GetComponent<DisplayProject>().SetProjectData(projects[i]);
             option.transform.SetParent(ScrollParent.transform);
         }
         
     }
-    void SetButtons(Button button)
+    void SetButtons(Button button,ProjectData pr)
     {
-        button.onClick.AddListener(bScripts.OpenDetailsWindow);
+        button.onClick.AddListener(()=> bScripts.OpenDetailsWindow(pr));
     }
     void SetString( string str)
     {

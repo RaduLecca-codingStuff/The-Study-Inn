@@ -8,7 +8,10 @@ public class ButtonScripts : MonoBehaviour
     // Start is called before the first frame update
     public GameObject TestPanel;
     public GameObject SearchbarProj;
-    public GameObject PDetailsWindow;
+    public DisplayFullProjectInfo PDetailsWindow;
+    public GameObject CenterContent;
+
+    public static ProjectData dataToDisplay;
 
     List<Button> ButtonsToDisable;
 
@@ -49,12 +52,23 @@ public class ButtonScripts : MonoBehaviour
     {
         SearchbarProj.SetActive(true);
     }
-    public void OpenDetailsWindow()
+    public void OpenDetailsWindow(ProjectData dt)
     {
-        PDetailsWindow.SetActive(true);
+        PDetailsWindow.SelectProject(dt);
+        PDetailsWindow.gameObject.SetActive(true);
     }
     public void CloseDetailsWindow()
     {
-        PDetailsWindow?.SetActive(false);
+        PDetailsWindow.gameObject.SetActive(false);
+    }
+
+    public void SwitchCenterContent(GameObject CParent)
+    {
+        for(int i = 0; i < CenterContent.transform.childCount; i++)
+        {
+            if (CenterContent.transform.GetChild(i).gameObject)
+                CenterContent.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        CParent.SetActive(true);
     }
 }

@@ -20,12 +20,13 @@ public class ProjectData
         set { _skillsRequired = value; }
     }
 
-    public ProjectData(List<Badge> b,string n,string d, string p) 
+    public ProjectData(List<Badge> b,string n, string p, string d, string k) 
     { 
         _skillsRequired = b;
         name = n;
-        description = d;
         publisher = p;
+        description = d;
+        _projectID = k;
 
     }
 

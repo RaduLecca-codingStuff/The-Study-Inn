@@ -6,35 +6,30 @@ using UnityEngine.UI;
 public class DisplayFullProjectInfo : MonoBehaviour
 {
     ProjectData projectData;
-    Text Title;
-    Text Description;
-    GameObject badgePrefab;
-    GameObject badgeParent;
-    List<GameObject> requiredBadges;
+    public Text Title;
+    public Text Owner;
+    public Text Description;
+    public GameObject badgePrefab;
+    public GameObject badgeParent;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void SelectProject(ProjectData project)
     {
-        
-    }
-    void PresentProject()
-    {
+        projectData=project;
         if (projectData != null)
         {
             Title.text = projectData.name;
+            Owner.text = projectData.publisher;
             Description.text = projectData.description;
-            foreach(Badge badge in projectData.SkillsRequired)
+           
+            foreach (Badge badge in projectData.SkillsRequired)
             {
-                GameObject b =Instantiate(badgePrefab);
-                b.GetComponent<Text>().text = badge.name;
-                b.transform.SetParent(badgeParent.transform);
-                requiredBadges.Add(b);
+                GameObject newBadge = Instantiate(badgePrefab);
+                newBadge.GetComponentInChildren<Text>().text = badge.BadgeName;
+                newBadge.transform.SetParent(badgeParent.transform);
             }
+            
         }
+
     }
-}
+    }

@@ -11,10 +11,12 @@ public class DisplayProject : MonoBehaviour
     // Start is called before the first frame update
     public void SetProjectData(ProjectData data)
     {
-        //NameText = GetComponent<Text>();
         dataToShow = data;
         if(NameText != null)
         NameText.text = dataToShow.name;
-        Debug.Log(dataToShow.name); 
+    }
+    public ProjectData SendData()
+    {
+        return dataToShow;
     }
 }
