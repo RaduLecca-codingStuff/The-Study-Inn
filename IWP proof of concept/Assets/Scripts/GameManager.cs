@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    string[] _competences;
-    string _name;
-    int _ID;
-    
-    // Start is called before the first frame update
-    void Start()
+    int _userID;
+    public void LogIn(int ID)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _userID = ID;
     }
 }

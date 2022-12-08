@@ -11,6 +11,7 @@ public class ProjectScrollerScript : MonoBehaviour
     public GameObject optionBase;
     GameObject ScrollParent;
     public ButtonScripts bScripts;
+    //public GameObject ProjDetailsPopUp;
     string[] projDataStrings;
     string path;
     public void ReadString()

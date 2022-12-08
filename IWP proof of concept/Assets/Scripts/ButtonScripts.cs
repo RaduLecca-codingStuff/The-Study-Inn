@@ -13,8 +13,6 @@ public class ButtonScripts : MonoBehaviour
 
     public static ProjectData dataToDisplay;
 
-    List<Button> ButtonsToDisable;
-
     public void OpenTestPanel(Button button)
     {
         TestPanel.SetActive(true);
@@ -25,33 +23,7 @@ public class ButtonScripts : MonoBehaviour
 
         TestPanel.SetActive(false);
     }
-    public void AddButtonToDisable(Button button)
-    {
-        ButtonsToDisable.Add(button);
-    }
-    void ClearButtonsToDisable()
-    {
-        ButtonsToDisable.Clear();
-    }
-    void DisableAllButtons()
-    {
-        foreach(Button button in ButtonsToDisable)
-        {
-            button.enabled = false;
-        }
-    }
-    void ReEnableButtons()
-    {
-        foreach (Button button in ButtonsToDisable)
-        {
-            button.enabled = true;
-        }
-    }
 
-    public void OpenSearchBarProjects()
-    {
-        SearchbarProj.SetActive(true);
-    }
     public void OpenDetailsWindow(ProjectData dt)
     {
         PDetailsWindow.SelectProject(dt);
@@ -70,5 +42,13 @@ public class ButtonScripts : MonoBehaviour
                 CenterContent.transform.GetChild(i).gameObject.SetActive(false);
         }
         CParent.SetActive(true);
+    }
+    public void ActivatePopUp(GameObject Pparent)
+    {
+        Pparent.SetActive(true);
+    }
+    public void ClosePopUp(GameObject Pparent)
+    {
+        Pparent.SetActive(false);
     }
 }

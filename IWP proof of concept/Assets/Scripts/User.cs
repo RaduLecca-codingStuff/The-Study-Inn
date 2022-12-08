@@ -5,12 +5,25 @@ using UnityEngine;
 public class User : MonoBehaviour
 {
     string _username;
+    string _password;
     List<string> _competences;
     List<string> _signedInProjects;
     int _accountType;                          
     int _accountId;
     Sprite _profilePic;
     Sprite _bannerPic;
+
+
+    public string Username
+    {
+        get { return _username; }
+        set { _username = value; }
+    }
+    public string Password
+    {
+        get { return _password; }
+        set { _password = value; }
+    }
 
     void SetBanner( Sprite s)
     {
@@ -20,11 +33,6 @@ public class User : MonoBehaviour
     void SetProfile(Sprite s)
     {
         _profilePic = s;
-    }
-
-    void SetUserName(string s)
-    {
-        _username = s;
     }
 
     void AddCompetence(string s)
