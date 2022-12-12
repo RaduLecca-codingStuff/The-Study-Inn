@@ -11,7 +11,6 @@ public class ProjectScrollerScript : MonoBehaviour
     public GameObject optionBase;
     GameObject ScrollParent;
     public ButtonScripts bScripts;
-    //public GameObject ProjDetailsPopUp;
     string[] projDataStrings;
     string path;
     public void ReadString()
@@ -60,6 +59,7 @@ public class ProjectScrollerScript : MonoBehaviour
             SetButtons(option.GetComponentInChildren<Button>(), projects[i]);
             option.GetComponent<DisplayProject>().SetProjectData(projects[i]);
             option.transform.SetParent(ScrollParent.transform);
+            option.gameObject.name=projects[i].name;
         }
         
     }
@@ -71,6 +71,24 @@ public class ProjectScrollerScript : MonoBehaviour
     {
         string[] indivSegments = str.Split('`');
         string[] skillsrequired = indivSegments[3].Split(',');
+
+    }
+
+    public void EditSearchTerm(Text term)
+    {
+        if (term.text!="")
+        foreach(ProjectData pr in projects)
+        {
+            if (!pr.name.Contains(term.text) && !pr.publisher.Contains(term.text))
+            {
+                ScrollParent.transform.Find(pr.name).gameObject.SetActive(false);
+            }
+        }
+        else
+        for (int i = 0; i < ScrollParent.transform.childCount; i++)
+        {
+            ScrollParent.transform.GetChild(i).gameObject.SetActive(true);
+        }
 
     }
 }

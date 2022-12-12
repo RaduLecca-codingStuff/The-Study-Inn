@@ -267,7 +267,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 6
+  m_Spacing: -175
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1350,6 +1350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 895684994}
+  - component: {fileID: 895684995}
   m_Layer: 5
   m_Name: BadgeParent
   m_TagString: Untagged
@@ -1373,9 +1374,35 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.173, y: -194.89587}
-  m_SizeDelta: {x: 629.65, y: 92.2083}
+  m_AnchoredPosition: {x: 45.047638, y: -194.89587}
+  m_SizeDelta: {x: 762.9779, y: 92.2083}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &895684995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895684993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &897973787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1605,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 986326080}
+        m_TargetAssemblyTypeName: ProjectScrollerScript, Assembly-CSharp
+        m_MethodName: EditSearchTerm
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1191021774}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -1673,8 +1712,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -206.57849, y: 240.90375}
-  m_SizeDelta: {x: 281.6906, y: 60.2703}
+  m_AnchoredPosition: {x: 20.174011, y: 202.47}
+  m_SizeDelta: {x: 629.65, y: 60.2703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018496675
 MonoBehaviour:
@@ -2360,8 +2399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 167.5, y: 240.9}
-  m_SizeDelta: {x: 335, y: 60.267}
+  m_AnchoredPosition: {x: 20.174, y: 149.85254}
+  m_SizeDelta: {x: 629.65, y: 44.9721}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442431855
 MonoBehaviour:
@@ -3257,8 +3296,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.173, y: 19.8772}
-  m_SizeDelta: {x: 629.65, y: 337.3363}
+  m_AnchoredPosition: {x: 20.173, y: -10.7126}
+  m_SizeDelta: {x: 629.65, y: 276.1567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2047905458
 MonoBehaviour:

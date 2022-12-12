@@ -6,13 +6,31 @@ public class User : MonoBehaviour
 {
     string _username;
     string _password;
-    List<string> _competences;
+    List<Badge> _competences;
     List<string> _signedInProjects;
     int _accountType;                          
-    int _accountId;
+    string _accountId;
     Sprite _profilePic;
     Sprite _bannerPic;
 
+    public User()
+    {
+        _accountId = "0";
+        _username = "John doe";
+        _password = "";
+        _competences = new List<Badge>();
+        _signedInProjects = new List<string>();
+
+    }
+    public User(string ID,string username,string password,List<Badge> competences,List<string>projects)
+    {
+        _accountId = ID;
+        _username = username;
+        _password = password;
+        _competences = competences;
+        _signedInProjects = projects;
+
+    }
 
     public string Username
     {
@@ -35,7 +53,7 @@ public class User : MonoBehaviour
         _profilePic = s;
     }
 
-    void AddCompetence(string s)
+    void AddCompetence(Badge s)
     {
         _competences.Add(s);
     }
