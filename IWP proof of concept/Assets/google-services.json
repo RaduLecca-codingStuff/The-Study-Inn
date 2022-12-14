@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "500122921308",
+    "firebase_url": "https://iwpproofofconcept-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "iwpproofofconcept",
+    "storage_bucket": "iwpproofofconcept.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500122921308:android:41fa1008f90015d9b4b999",
+        "android_client_info": {
+          "package_name": "com.google.firebase.IWPproofofconcept"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500122921308-48tdl9arlukpumqr0j3ksj3vomjlb9st.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.firebase.IWPproofofconcept",
+            "certificate_hash": "5757b681498529937a401a766ef11622ac87a86d"
+          }
+        },
+        {
+          "client_id": "500122921308-tpjai6ql1s102gojl0vug82251qntg5s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAReCYOhNN3i0DAcJ23rUiq5Zwo4Plju2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500122921308-tpjai6ql1s102gojl0vug82251qntg5s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "500122921308-f4ra8qid2ns5qk63pu59m9mfrj9u4ndo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.google.firebase.IWPproofofconcept"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

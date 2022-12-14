@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 377304846}
   - component: {fileID: 377304845}
   m_Layer: 5
-  m_Name: TestButton
+  m_Name: ProfileButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -891,7 +891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: close
+  m_Text: Close
 --- !u!222 &592363936
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2333,8 +2333,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383885523}
+  - component: {fileID: 1383885524}
+  - component: {fileID: 1383885525}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: UserDetailsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2357,6 +2359,7 @@ RectTransform:
   - {fileID: 1990871288}
   - {fileID: 1135392421}
   - {fileID: 2084738665}
+  - {fileID: 2058821486}
   m_Father: {fileID: 1977775655}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2365,6 +2368,36 @@ RectTransform:
   m_AnchoredPosition: {x: -497, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1383885524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383885522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa53a422f53e3164ba1cce4ed0fc3880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UserName: {fileID: 2084738666}
+  BadgeParent: {fileID: 2058821485}
+  BadgePrefab: {fileID: 7778140717504809073, guid: f4d5d6b52dc271348a89fd492fc338de, type: 3}
+--- !u!114 &1383885525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383885522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa53a422f53e3164ba1cce4ed0fc3880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UserName: {fileID: 2084738666}
+  BadgeParent: {fileID: 2058821485}
+  BadgePrefab: {fileID: 7778140717504809073, guid: f4d5d6b52dc271348a89fd492fc338de, type: 3}
 --- !u!1 &1442431853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,7 +2969,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Open
+  m_Text: Profile Details
 --- !u!222 &1954768150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3341,6 +3374,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047905456}
   m_CullTransparentMesh: 1
+--- !u!1 &2058821485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058821486}
+  - component: {fileID: 2058821487}
+  m_Layer: 5
+  m_Name: BadgeParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2058821486
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058821485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1383885523}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -197.28108, y: 11.115}
+  m_SizeDelta: {x: 494.562, y: 237.078}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2058821487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058821485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &2084738664
 GameObject:
   m_ObjectHideFlags: 0

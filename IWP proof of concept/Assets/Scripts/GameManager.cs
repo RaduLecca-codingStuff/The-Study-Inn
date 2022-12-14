@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using Firebase;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,18 @@ public class GameManager : MonoBehaviour
     public static User AccountUser;
     static string path;
     static string[] userDataStrings;
+    //please change the URl here to the final database in the last version
+    public static string DATA_URL = "https://iwpproofofconcept-default-rtdb.europe-west1.firebasedatabase.app/";
+
+    //change the story
+    private void Awake()
+    {
+        AccountUser= new User();
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        {
+            
+        });
+    }
     public static void Login(string user,string password)
     {
         path = "Assets/DataFiles/UserListFile.udata";
@@ -32,4 +46,6 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    
 }

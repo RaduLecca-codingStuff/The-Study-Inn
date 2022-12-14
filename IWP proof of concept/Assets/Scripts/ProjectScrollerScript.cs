@@ -4,7 +4,11 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using System;
+using Firebase;
+using Firebase.Database;
+using Firebase.Extensions;
 
+[Serializable]
 public class ProjectScrollerScript : MonoBehaviour
 {
     List<ProjectData> projects = new List<ProjectData>();
@@ -20,7 +24,8 @@ public class ProjectScrollerScript : MonoBehaviour
         StreamReader reader = new StreamReader(path);
         projDataStrings = reader.ReadToEnd().Split('~');
         reader.Close();
-
+        
+        
         for (int i = 0; i < projDataStrings.Length; i++)
         {
             string[] indivSegments = projDataStrings[i].Split('`');
@@ -46,21 +51,17 @@ public class ProjectScrollerScript : MonoBehaviour
     private void Awake()
     {
         ScrollParent = GameObject.FindWithTag("SearchProjList");
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-        ReadString();
-        GameObject option;
+        LoadData();
+        //ReadString();
+        Debug.Log(projects.Count);
         
-        for(int i = 0; i < projects.Count; i++)
-        {
-            option = Instantiate(optionBase);
-            SetButtons(option.GetComponentInChildren<Button>(), projects[i]);
-            option.GetComponent<DisplayProject>().SetProjectData(projects[i]);
-            option.transform.SetParent(ScrollParent.transform);
-            option.gameObject.name=projects[i].name;
-        }
+        
+        
         
     }
     void SetButtons(Button button,ProjectData pr)
@@ -79,7 +80,7 @@ public class ProjectScrollerScript : MonoBehaviour
         if (term.text!="")
         foreach(ProjectData pr in projects)
         {
-            if (!pr.name.Contains(term.text) && !pr.publisher.Contains(term.text))
+            if (!pr.name.Contains(term.text) && !pr.ownerName.Contains(term.text))
             {
                 ScrollParent.transform.Find(pr.name).gameObject.SetActive(false);
             }
@@ -90,5 +91,54 @@ public class ProjectScrollerScript : MonoBehaviour
             ScrollParent.transform.GetChild(i).gameObject.SetActive(true);
         }
 
+    }
+
+    public void LoadData()
+    {
+        string url = GameManager.DATA_URL;
+        FirebaseDatabase.DefaultInstance
+            .GetReference("ProjectList")
+            .GetValueAsync()
+            .ContinueWithOnMainThread((task=> {
+
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("DATA RETRIEVAL CANCELLED");
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("DATA IS SOMEHOW BROKEN");
+                }
+                if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    string playerData= snapshot.GetRawJsonValue();
+                    
+                    //JsonUtility.FromJson<User>(playerData);
+                   
+                    foreach(var child in snapshot.Children)
+                    {
+                        string t = child.GetRawJsonValue();
+                        ProjectData proj = JsonUtility.FromJson<ProjectData>(t);
+                        Debug.Log(proj.name);
+                        projects.Add(proj);
+                        
+                        
+                    }
+                    Debug.Log(projects.Count);
+
+                    GameObject option;
+                    for (int i = 0; i < projects.Count; i++)
+                    {
+                        option = Instantiate(optionBase);
+                        SetButtons(option.GetComponentInChildren<Button>(), projects[i]);
+                        option.GetComponent<DisplayProject>().SetProjectData(projects[i]);
+                        option.transform.SetParent(ScrollParent.transform);
+                        option.gameObject.name = projects[i].name;
+                    }
+                }
+            
+            
+            }));
     }
 }
