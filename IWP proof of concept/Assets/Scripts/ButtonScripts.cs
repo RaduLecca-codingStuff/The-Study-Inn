@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase;
+using Firebase.Database;
+using Firebase.Extensions;
 
 public class ButtonScripts : MonoBehaviour
 {
@@ -50,5 +53,49 @@ public class ButtonScripts : MonoBehaviour
     public void ClosePopUp(GameObject Pparent)
     {
         Pparent.SetActive(false);
+    }
+    public void TryLogIn(Text user, Text password,GameObject loginMenu,GameObject userMenu,Text ErrorMessage)
+    {
+        string url = GameManager.DATA_URL;
+        FirebaseDatabase.DefaultInstance
+            .GetReference("UserList")
+            .GetValueAsync()
+            .ContinueWithOnMainThread((task =>
+            {
+
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("DATA RETRIEVAL CANCELLED");
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("USER DATA IS SOMEHOW BROKEN");
+                }
+                if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    foreach( var child in snapshot.Children)
+                    {
+                        string t = child.GetRawJsonValue();
+                        User c= JsonUtility.FromJson<User>(t);
+                        if (user.text==c.Username && password.text==c.Password)
+                        {
+                            GameManager.AccountUser = c;
+                            userMenu.SetActive(true);
+                            loginMenu.SetActive(false);
+                            user.text = "";
+                            password.text = "";
+                        }
+                        else 
+                        {
+                            ErrorMessage.text = "Incorrect username and/or password. Please try again.";
+                        }
+                        user.text = "";
+                        password.text = "";
+
+                    }
+                }
+            }
+            ));
     }
 }
