@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     //change the story
     private void Awake()
     {
-        AccountUser= new User();
+        //AccountUser= new User();
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             

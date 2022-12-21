@@ -113,14 +113,10 @@ public class ProjectScrollerScript : MonoBehaviour
                 {
                     DataSnapshot snapshot = task.Result;
                     string playerData= snapshot.GetRawJsonValue();
-                    
-                    //JsonUtility.FromJson<User>(playerData);
-                   
                     foreach(var child in snapshot.Children)
                     {
                         string t = child.GetRawJsonValue();
                         ProjectData proj = JsonUtility.FromJson<ProjectData>(t);
-                        Debug.Log(proj.name);
                         projects.Add(proj);
                         
                         

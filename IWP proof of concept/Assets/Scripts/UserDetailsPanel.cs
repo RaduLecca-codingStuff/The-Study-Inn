@@ -11,13 +11,14 @@ public class UserDetailsPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        UserName.text = GameManager.AccountUser.Username;
-        foreach(Badge badge in GameManager.AccountUser.Competences)
+        UserName.text = GameManager.AccountUser.username;
+        /*foreach(Badge badge in GameManager.AccountUser.Competences)
         {
             GameObject bdg = Instantiate(BadgePrefab);
             bdg.GetComponentInChildren<Text>().name = badge.BadgeName;
             bdg.transform.SetParent(BadgeParent.transform);
         }
+        */
         
     }
 }

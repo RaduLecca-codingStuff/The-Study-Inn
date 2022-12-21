@@ -4,58 +4,22 @@ using UnityEngine;
 
 public class User 
 {
-    string username;
-    string password;
-    string email;
-    string studentID;
-    string badgeList;
+    public string badgeList;
+    public string email;
+    public string password;
+    public string studentID;
+    public string username;
 
-    List<Badge> _competences;
-    List<string> _signedInProjects;                         
-    string _accountId;
-
-
-    public User()
+    public User(string ID,string u,string p, string e,string b)
     {
-        _accountId = "0";
-        username = "John doe";
-        password = "";
-        _competences = new List<Badge>();
-        _signedInProjects = new List<string>();
 
-    }
-    public User(string ID,string u,string p,List<Badge> competences,List<string>projects)
-    {
-        _accountId = ID;
         username = u;
         password = p;
-        _competences = competences;
-        _signedInProjects = projects;
-
+        studentID = ID;
+        email = e;
+        badgeList = b;
     }
 
-    public string Username
-    {
-        get { return username; }
-        set { username = value; }
-    }
-    public string Password
-    {
-        get { return password; }
-        set { password = value; }
-    }
-    public List<Badge> Competences
-    {
-        get { return _competences; }
-        set { _competences = value; }
-    }
+    
 
-    void AddCompetence(Badge s)
-    {
-        _competences.Add(s);
-    }
-    void RemoveCompetence(int i)
-    {
-        _competences.RemoveAt(i);
-    }
 }

@@ -74,25 +74,28 @@ public class ButtonScripts : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     DataSnapshot snapshot = task.Result;
+                    User c;
                     foreach( var child in snapshot.Children)
                     {
                         string t = child.GetRawJsonValue();
-                        User c= JsonUtility.FromJson<User>(t);
-                        if (user.text==c.Username && password.text==c.Password)
-                        {
-                            GameManager.AccountUser = c;
-                            userMenu.SetActive(true);
-                            loginMenu.SetActive(false);
-                            user.text = "";
-                            password.text = "";
-                        }
-                        else 
-                        {
-                            ErrorMessage.text = "Incorrect username and/or password. Please try again.";
-                        }
-                        user.text = "";
-                        password.text = "";
+                        c= JsonUtility.FromJson<User>(t);
+                        Debug.Log(c.password);
+                         if (user.text==c.username && password.text==c.password)
+                         {
 
+                             GameManager.AccountUser = c;
+                             userMenu.SetActive(true);
+                             loginMenu.SetActive(false);
+                             user.text = "";
+                             password.text = "";
+                         }
+                         else 
+                         {
+                             ErrorMessage.text = "Incorrect username and/or password. Please try again.";
+                         }
+                         user.text = "";
+                         password.text = "";
+                        
                     }
                 }
             }
