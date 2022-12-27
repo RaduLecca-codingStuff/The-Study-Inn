@@ -59,10 +59,12 @@
     <Compile Include="Assets\Scripts\Classes\User.cs" />
     <Compile Include="Assets\Scripts\DisplayFullProjectInfo.cs" />
     <Compile Include="Assets\Scripts\UserDetailsPanel.cs" />
+    <Compile Include="Assets\Scripts\LogInScreen.cs" />
     <Compile Include="Assets\Scripts\ButtonScripts.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Classes\ProjectData.cs" />
-    <Compile Include="Assets\Scripts\LogInScreen.cs" />
+    <Compile Include="Assets\Scripts\Classes\UserMetricData.cs" />
+    <Compile Include="Assets\Scripts\UserProjectList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Firebase\Plugins\Firebase.Analytics.dll" />

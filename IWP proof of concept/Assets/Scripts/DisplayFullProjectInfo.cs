@@ -18,15 +18,15 @@ public class DisplayFullProjectInfo : MonoBehaviour
 
     public void SelectProject(ProjectData project)
     {
-        projectData=project;
+        projectData = project;
         if (projectData != null)
         {
             Title.text = projectData.name;
             Owner.text = projectData.ownerName;
             Description.text = projectData.description;
-            badgeIDs=project.requiredBadgesIDs.Split(',');
+            badgeIDs = project.requiredBadgesIDs.Split(',');
             LoadBadgeData();
-            
+
         }
 
     }

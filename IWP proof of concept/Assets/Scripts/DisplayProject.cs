@@ -12,8 +12,8 @@ public class DisplayProject : MonoBehaviour
     public void SetProjectData(ProjectData data)
     {
         dataToShow = data;
-        if(NameText != null)
-        NameText.text = dataToShow.name;
+        if (NameText != null)
+            NameText.text = dataToShow.name;
     }
     public ProjectData SendData()
     {

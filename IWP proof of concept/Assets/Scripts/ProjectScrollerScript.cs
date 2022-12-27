@@ -8,6 +8,7 @@ using Firebase;
 using Firebase.Database;
 using Firebase.Extensions;
 
+
 [Serializable]
 public class ProjectScrollerScript : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ProjectScrollerScript : MonoBehaviour
     public ButtonScripts bScripts;
     string[] projDataStrings;
     string path;
+    /*
     public void ReadString()
     {
         path = "Assets/DataFiles/ProjectListFile.pdata";
@@ -48,6 +50,7 @@ public class ProjectScrollerScript : MonoBehaviour
         
         
     }
+    */
     private void Awake()
     {
         ScrollParent = GameObject.FindWithTag("SearchProjList");
@@ -57,39 +60,27 @@ public class ProjectScrollerScript : MonoBehaviour
     void Start()
     {
         LoadData();
-        //ReadString();
-        Debug.Log(projects.Count);
-        
-        
-        
-        
     }
     void SetButtons(Button button,ProjectData pr)
     {
         button.onClick.AddListener(()=> bScripts.OpenDetailsWindow(pr));
     }
-    void SetString( string str)
-    {
-        string[] indivSegments = str.Split('`');
-        string[] skillsrequired = indivSegments[3].Split(',');
-
-    }
-
+    
     public void EditSearchTerm(Text term)
     {
-        if (term.text!="")
-        foreach(ProjectData pr in projects)
-        {
-            if (!pr.name.Contains(term.text) && !pr.ownerName.Contains(term.text))
+        if (term.text != "")
+            foreach (ProjectData pr in projects)
             {
-                ScrollParent.transform.Find(pr.name).gameObject.SetActive(false);
+                if (!pr.name.Contains(term.text) && !pr.ownerName.Contains(term.text))
+                {
+                    ScrollParent.transform.Find(pr.name).gameObject.SetActive(false);
+                }
             }
-        }
         else
-        for (int i = 0; i < ScrollParent.transform.childCount; i++)
-        {
-            ScrollParent.transform.GetChild(i).gameObject.SetActive(true);
-        }
+            for (int i = 0; i < ScrollParent.transform.childCount; i++)
+            {
+                ScrollParent.transform.GetChild(i).gameObject.SetActive(true);
+            }
 
     }
 
@@ -99,7 +90,8 @@ public class ProjectScrollerScript : MonoBehaviour
         FirebaseDatabase.DefaultInstance
             .GetReference("ProjectList")
             .GetValueAsync()
-            .ContinueWithOnMainThread((task=> {
+            .ContinueWithOnMainThread((task =>
+            {
 
                 if (task.IsCanceled)
                 {
@@ -112,16 +104,14 @@ public class ProjectScrollerScript : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     DataSnapshot snapshot = task.Result;
-                    string playerData= snapshot.GetRawJsonValue();
-                    foreach(var child in snapshot.Children)
+                    string playerData = snapshot.GetRawJsonValue();
+                    foreach (var child in snapshot.Children)
                     {
                         string t = child.GetRawJsonValue();
                         ProjectData proj = JsonUtility.FromJson<ProjectData>(t);
+                        proj.projectID = child.Key;
                         projects.Add(proj);
-                        
-                        
                     }
-                    Debug.Log(projects.Count);
 
                     GameObject option;
                     for (int i = 0; i < projects.Count; i++)
@@ -133,8 +123,8 @@ public class ProjectScrollerScript : MonoBehaviour
                         option.gameObject.name = projects[i].name;
                     }
                 }
-            
-            
+
+
             }));
     }
 }

@@ -9,6 +9,9 @@ public class User
     public string password;
     public string studentID;
     public string username;
+    public string projectList;
+    string _accountID;
+    public string accountID { get { return _accountID; } set { _accountID = value; } }
 
     public User(string ID,string u,string p, string e,string b)
     {
@@ -18,6 +21,7 @@ public class User
         studentID = ID;
         email = e;
         badgeList = b;
+       
     }
 
     

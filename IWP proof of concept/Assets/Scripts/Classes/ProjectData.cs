@@ -11,19 +11,12 @@ public class ProjectData
     string _projectID;
     public string projectID
     {
-        get { return _projectID; } 
+        get { return _projectID; }
         set { _projectID = value; }
     }
-    List<Badge> _skillsRequired;
-    public List<Badge> SkillsRequired
-    {
-        get { return _skillsRequired; }
-        set { _skillsRequired = value; }
-    }
 
-    public ProjectData(List<Badge> b,string n, string p, string d, string k) 
-    { 
-        _skillsRequired = b;
+    public ProjectData( string n, string p, string d, string k)
+    {
         name = n;
         ownerName = p;
         description = d;
@@ -31,6 +24,6 @@ public class ProjectData
 
     }
 
-    
-   
+
+
 }
