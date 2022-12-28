@@ -70,9 +70,3 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-
-!/IWP proof of concept/Library/ArtifactDB
-
-!/IWP proof of concept/Library/SourceAssetDB
-
-!/IWP proof of concept/Logs/AssetImportWorker0.log

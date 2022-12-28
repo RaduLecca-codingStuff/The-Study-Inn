@@ -122,36 +122,13 @@ public class ButtonScripts : MonoBehaviour
             .Child("projectList")
             .SetValueAsync(GameManager.AccountUser.projectList);
 
-            /*
-            .GetValueAsync()
-            .ContinueWithOnMainThread((task =>
-            {
+    }
 
-                if (task.IsCanceled)
-                {
-                    Debug.LogError("DATA RETRIEVAL CANCELLED");
-                }
-                if (task.IsFaulted)
-                {
-                    Debug.LogError("DATA IS SOMEHOW BROKEN");
-                }
-                if (task.IsCompleted)
-                {
-                    DataSnapshot snapshot = task.Result;
-                    string playerData = snapshot.GetRawJsonValue();
-
-                    foreach (var child in snapshot.Children)
-                    {
-                        string t = child.GetRawJsonValue();
-                        ProjectData proj = JsonUtility.FromJson<ProjectData>(t);
-                        //projects.Add(proj);
-                    }
-                    //snapshot.Child(1).Key
-                }
-
-            }));
-            */
-
-
+    public void Logout(GameObject loginMenu, GameObject userMenu,UserMetricData imd)
+    {
+        GameManager.AccountUser=null;
+        userMenu.SetActive(false);
+        loginMenu.SetActive(true);
+        imd.CloseMetrics();
     }
 }

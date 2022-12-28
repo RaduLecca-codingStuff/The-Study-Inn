@@ -30,13 +30,11 @@ public class UserMetricData : MonoBehaviour
             lastLogin = DateTime.Now;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnApplicationQuit()
+    {
+        CloseMetrics();
+    }
+    public void CloseMetrics()
     {
         float avg = 0;
         for (int i = 0; i < timebetweenbuttonspressed.Length; i++)
@@ -46,6 +44,5 @@ public class UserMetricData : MonoBehaviour
         avg = avg / timebetweenbuttonspressed.Length;
         if (avgButtonPressTime > 0)
             avgButtonPressTime = (avgButtonPressTime + avg) / 2;
-
     }
 }
