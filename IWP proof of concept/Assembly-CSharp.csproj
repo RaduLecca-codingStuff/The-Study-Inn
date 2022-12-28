@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DisplayProject.cs" />
+    <Compile Include="Assets\Scripts\UserProjectList.cs" />
     <Compile Include="Assets\Scripts\ProjectScrollerScript.cs" />
     <Compile Include="Assets\Scripts\Classes\Badge.cs" />
     <Compile Include="Assets\Scripts\Classes\User.cs" />
@@ -64,7 +65,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Classes\ProjectData.cs" />
     <Compile Include="Assets\Scripts\Classes\UserMetricData.cs" />
-    <Compile Include="Assets\Scripts\UserProjectList.cs" />
+    <Compile Include="Assets\Scripts\LogOut.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Firebase\Plugins\Firebase.Analytics.dll" />
