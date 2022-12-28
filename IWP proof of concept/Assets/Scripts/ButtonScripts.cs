@@ -17,8 +17,6 @@ public class ButtonScripts : MonoBehaviour
 
     public static ProjectData dataToDisplay;
 
-    
-
     public void OpenTestPanel(Button button)
     {
         TestPanel.SetActive(true);
