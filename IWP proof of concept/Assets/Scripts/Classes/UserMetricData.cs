@@ -18,7 +18,7 @@ public class UserMetricData : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        string path = "Assets/Resources/test.txt";
+        string path = "Assets/Metrics/user.umetric";
         StreamReader reader = new StreamReader(path);
         string[] line = reader.ReadToEnd().Split(',');
         nrofLogins = int.Parse(line[0]) + 1;
