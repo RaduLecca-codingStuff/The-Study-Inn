@@ -1,0 +1,2 @@
+C:\Users\ldryo\Documents\GitHub\The-Study-Inn\IWP proof of concept\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\ldryo\Documents\GitHub\The-Study-Inn\IWP proof of concept\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
