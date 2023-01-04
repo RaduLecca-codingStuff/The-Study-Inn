@@ -80,10 +80,8 @@ public class ButtonScripts : MonoBehaviour
                     {
                         string t = child.GetRawJsonValue();
                         c = JsonUtility.FromJson<User>(t);
-                        Debug.Log(c.password);
                         if (user.text == c.username && password.text == c.password)
                         {
-
                             GameManager.AccountUser = c;
                             GameManager.AccountUser.accountID = child.Key;
                             userMenu.SetActive(true);

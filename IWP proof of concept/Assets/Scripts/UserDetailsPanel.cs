@@ -8,13 +8,14 @@ using UnityEngine.UI;
 public class UserDetailsPanel : MonoBehaviour
 {
     public Text UserName;
-    public GameObject BadgeParent;
+    public RectTransform BadgeParent;
     public GameObject BadgePrefab;
+    
 
     private void OnEnable()
     {
         UserName.text = GameManager.AccountUser.username;
-        string[] badges = GameManager.AccountUser.badgeList.Split();
+        
         string url = GameManager.DATA_URL;
         FirebaseDatabase.DefaultInstance
             .GetReference("Badges")
@@ -33,11 +34,12 @@ public class UserDetailsPanel : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     DataSnapshot snapshot = task.Result;
-                    foreach(string badge in badges)
+                    string[] badges = GameManager.AccountUser.badgeList.Split(',');
+                    foreach (string badge in badges)
                     {
-                        GameObject bdg = Instantiate(BadgePrefab);
+                        GameObject bdg = BadgePrefab;
                         bdg.GetComponentInChildren<Text>().name = snapshot.Child(badge).Value.ToString();
-                        bdg.transform.SetParent(BadgeParent.transform);
+                        Instantiate(bdg, BadgeParent);
                     }
                     
 
