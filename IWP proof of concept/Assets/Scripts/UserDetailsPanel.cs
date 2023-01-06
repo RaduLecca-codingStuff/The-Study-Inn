@@ -35,11 +35,11 @@ public class UserDetailsPanel : MonoBehaviour
                 {
                     DataSnapshot snapshot = task.Result;
                     string[] badges = GameManager.AccountUser.badgeList.Split(',');
-                    foreach (string badge in badges)
+                    for(int i=0;i<badges.Length;i++)
                     {
-                        GameObject bdg = BadgePrefab;
-                        bdg.GetComponentInChildren<Text>().name = snapshot.Child(badge).Value.ToString();
-                        Instantiate(bdg, BadgeParent);
+                        GameObject bdg = Instantiate(BadgePrefab, BadgeParent);
+                        string value = snapshot.Child(badges[i]).Value.ToString();
+                        bdg.transform.GetChild(0).GetComponent<Text>().text = value;
                     }
                     
 
