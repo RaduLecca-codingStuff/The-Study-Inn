@@ -375,7 +375,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 14238d81a91583dfaa4cc4e0ff77ee56
+      Hash: ba6243c65edeb1987e712266d252feff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UserDetailsPanel
@@ -718,4 +718,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/ldryo/Desktop/Study Inn test build/IWP proof of concept.exe
+  playerPath: C:/Users/ldryo/Desktop/StudyInn_TestBuild/IWP proof of concept.exe

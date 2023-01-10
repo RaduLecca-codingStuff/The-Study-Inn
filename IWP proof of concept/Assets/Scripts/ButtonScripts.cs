@@ -105,12 +105,14 @@ public class ButtonScripts : MonoBehaviour
 
     public void JoinProject(ProjectData pr)
     {
-        if (GameManager.AccountUser.projectList == "")
-            GameManager.AccountUser.projectList += pr.projectID;
-        else
-            GameManager.AccountUser.projectList += ','+ pr.projectID;
-
-
+        if (!GameManager.AccountUser.projectList.Contains(pr.projectID))
+        {
+            if (GameManager.AccountUser.projectList == "")
+                GameManager.AccountUser.projectList += pr.projectID;
+            else
+                GameManager.AccountUser.projectList += ',' + pr.projectID;
+        }
+        
         string url = GameManager.DATA_URL;
         FirebaseDatabase.DefaultInstance
             .GetReference("UserList")

@@ -13,6 +13,8 @@ public class DisplayFullProjectInfo : MonoBehaviour
     public Text Description;
     public GameObject badgePrefab;
     public GameObject badgeParent;
+    public Button JoinButton;
+    
     string[] badgeIDs;
     // Start is called before the first frame update
 
@@ -32,6 +34,10 @@ public class DisplayFullProjectInfo : MonoBehaviour
     }
     void LoadBadgeData()
     {
+        foreach (Transform child in badgeParent.transform)
+        {
+            Destroy(child.gameObject);
+        }
         string url = GameManager.DATA_URL;
         FirebaseDatabase.DefaultInstance
             .GetReference("Badges")
@@ -50,17 +56,19 @@ public class DisplayFullProjectInfo : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     DataSnapshot snapshot = task.Result;
+                    
                     foreach (string b in badgeIDs)
                     {
-                        GameObject newBadge = Instantiate(badgePrefab);
+                        GameObject newBadge = Instantiate(badgePrefab, badgeParent.transform);
                         newBadge.GetComponentInChildren<Text>().text = snapshot.Child(b).Value.ToString();
-                        newBadge.transform.SetParent(badgeParent.transform);
                     }
-
-
 
                 }
 
             }));
+        ButtonScripts b=new ButtonScripts();
+        JoinButton.onClick.AddListener(() => b.JoinProject(projectData));
     }
-    }
+
+}
+
